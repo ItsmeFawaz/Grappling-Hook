@@ -240,7 +240,8 @@ public class RecipeLoader {
     }
 
     private String formatString(String unformattedString, int uses){
-        unformattedString = unformattedString.replace("[uses]", ""+uses);
+        unformattedString = unformattedString.replace("[uses]", uses+"§");
+
         unformattedString = ChatColor.translateAlternateColorCodes('&', unformattedString);
         return unformattedString;
     }

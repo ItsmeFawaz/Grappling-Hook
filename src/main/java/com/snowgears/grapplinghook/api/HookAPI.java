@@ -12,6 +12,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public final class HookAPI {
 	
@@ -178,11 +179,11 @@ public final class HookAPI {
 				return false;
 			}
 			else{
-				String oldUses = "" + uses;
+				String oldUses = uses+"§";
 				List<String> oldLore = im.getLore();
 				List<String> newLore = new ArrayList<>();
 				for(String loreLine : oldLore){
-					newLore.add(loreLine.replace(oldUses, "" + (uses-1)));
+					newLore.add(loreLine.replace(oldUses, (uses-1)+"§"));
 				}
 
 				persistentData.set(new NamespacedKey(GrapplingHook.getPlugin(), "uses"), PersistentDataType.INTEGER, uses-1);
